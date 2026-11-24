@@ -1122,6 +1122,14 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Validação:** leitura do Notion e conferência visual dos frames públicos do Figma. A inspeção de medidas e propriedades do Figma não estava disponível. Nesta etapa não há código executável no destino.
 - **Commit:** `docs: importa especificacoes e identifica projeto-base`.
 
+### Importação — T01, T03, T05–T14: aplicação-base
+
+- **Escopo:** importar a SPA, os assets usados, as referências visuais preservadas e a suíte de testes do anexo (RF-01 a RF-15). Arquivos de demonstração padrão do Vite que não são usados ficaram fora.
+- **Arquivos:** `src/`, `index.html`, `.gitignore`, `package*.json` e configurações do TypeScript, Vite, ESLint e Vitest.
+- **Validação:** Node 24.15.0; `npm ci --include=optional`, `npm run lint`, `npm run build` (inclui `tsc -b`) e `npm run test` passaram. Os 17 testes herdados foram executados novamente. A Home abriu no Vite local.
+- **Decisão:** manter as versões do anexo. O Node 22.11.0 da máquina não satisfaz os requisitos do Vite e do ambiente de testes; repetir `npm ci` com o Node 24 instalado no cache instalou também o binário do Rolldown para Windows.
+- **Commit:** `feat: importa aplicacao Coffee Delivery e testes da base`.
+
 ### Conferência com o enunciado do Notion
 
 - **Escopo:** atualização documental de T02 e dos critérios de T04, T17 e T18, sem encerrar essas tarefas.
