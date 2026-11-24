@@ -1144,6 +1144,15 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Validação:** novo teste de integração do catálogo com carrinho persistente e teste de preferência de tema. O contraste e a navegação por teclado foram revisados nos controles envolvidos; o Lighthouse da Home marcou 100 em acessibilidade, sem certificar conformidade WCAG completa.
 - **Commit:** `style: aproxima cabecalho e catalogo da referencia`.
 
+### Importação — T17/T18: evidências e hospedagem
+
+- **Arquivos:** `README.md`, `docs/PRD_SPEC.md`, `docs/TASKS_SPEC.md`, `docs/AI_USAGE.md`, `docs/evidences/` e `vercel.json`.
+- **Validação automatizada:** `npm run lint` e `npm run build` (TypeScript e Vite) aprovados; `npm run test` aprovou 21 testes em oito arquivos. O preview do build respondeu HTTP 200 em `/`, `/checkout` e `/success`, servindo o JavaScript compilado.
+- **Validação no Chrome com Playwright:** Home, checkout vazio e preenchido e confirmação vazia e preenchida em 320, 375, 390, 768, 1280 e 1440 px, sem rolagem horizontal. O fluxo verificou 14 imagens, adição repetida, quantidades, totais, CEP real `01001-000`, pagamento por teclado, navegação sem recarregar, carrinho limpo e persistência após recarregar. O tema escuro também foi verificado nas três telas.
+- **Evidências:** sete capturas da aplicação local em desktop (1440 px) e mobile (390 px), incluindo Home em tema escuro.
+- **Pendências:** ferramenta visual retornou `Invalid credential` (RF-16); a marca SVG do anexo foi preservada. A configuração Vercel está pronta, mas não houve publicação ou envio ao GitHub.
+- **Commit:** `docs: registra validacao e prepara entrega local`.
+
 ### Conferência com o enunciado do Notion
 
 - **Escopo:** atualização documental de T02 e dos critérios de T04, T17 e T18, sem encerrar essas tarefas.
@@ -1243,32 +1252,32 @@ Não inventar testes, screenshots ou resultados de execução.
 
 # 9. Checklist de entrega final
 
-- [ ] Aplicação compila sem erros.
-- [ ] Home apresenta os cafés.
-- [ ] Carrinho acumula produtos repetidos.
-- [ ] Contador apresenta unidades totais.
-- [ ] Carrinho persiste após refresh.
-- [ ] Controles de quantidade funcionam.
-- [ ] CEP é consultado por API pública.
-- [ ] Formulário apresenta validações.
-- [ ] Pagamento fictício é obrigatório.
-- [ ] Subtotal, frete e total estão corretos.
-- [ ] Pedidos inválidos são bloqueados.
-- [ ] Pedido válido é confirmado.
-- [ ] Carrinho é limpo após confirmação.
-- [ ] Snapshot do pedido é preservado.
+- [x] Aplicação compila sem erros.
+- [x] Home apresenta os cafés.
+- [x] Carrinho acumula produtos repetidos.
+- [x] Contador apresenta unidades totais.
+- [x] Carrinho persiste após refresh.
+- [x] Controles de quantidade funcionam.
+- [x] CEP é consultado por API pública.
+- [x] Formulário apresenta validações.
+- [x] Pagamento fictício é obrigatório.
+- [x] Subtotal, frete e total estão corretos.
+- [x] Pedidos inválidos são bloqueados.
+- [x] Pedido válido é confirmado.
+- [x] Carrinho é limpo após confirmação.
+- [x] Snapshot do pedido é preservado.
 - [ ] Logo original com IA implementada.
-- [ ] Favicon configurado.
-- [ ] Modo claro e escuro funcional.
-- [ ] Tema persiste após refresh.
-- [ ] Home responsiva.
-- [ ] Checkout responsivo.
-- [ ] Confirmação responsiva.
-- [ ] Acessibilidade revisada.
-- [ ] Testes executados.
-- [ ] Documentação atualizada.
-- [ ] Pelo menos três interações com IA registradas.
-- [ ] Screenshots adicionados.
+- [x] Favicon configurado.
+- [x] Modo claro e escuro funcional.
+- [x] Tema persiste após refresh.
+- [x] Home responsiva.
+- [x] Checkout responsivo.
+- [x] Confirmação responsiva.
+- [x] Acessibilidade revisada.
+- [x] Testes executados.
+- [x] Documentação atualizada.
+- [x] Pelo menos três interações com IA registradas, incluindo o histórico atribuído ao projeto-base.
+- [x] Screenshots adicionados.
 - [ ] Aplicação publicada.
 - [ ] README com link de deploy.
 - [ ] Repositório GitHub atualizado.

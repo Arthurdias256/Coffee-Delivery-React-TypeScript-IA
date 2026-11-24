@@ -4,7 +4,7 @@
 - **Disciplina:** Single Page Application (SPA)
 - **Tecnologias:** React, TypeScript e Vite 8
 - **Versão:** 1.0
-- **Status:** Planejamento
+- **Status:** Requisitos revisados com o enunciado
 - **Repositório:** https://github.com/Arthurdias256/Coffee-Delivery-React-TypeScript-IA
 
 ---
@@ -689,15 +689,15 @@ A entrega final deverá conter:
 | DP-01 | Utilizar React + TypeScript + Vite 8             | Definida |
 | DP-02 | Utilizar catálogo local                          | Definida |
 | DP-03 | Utilizar carrinho persistido no localStorage     | Definida |
-| DP-04 | Utilizar ViaCEP como opção de API pública        | Proposta |
-| DP-05 | Utilizar frete fictício de R$ 3,50               | Proposta |
-| DP-06 | Remover item ao reduzir a quantidade para zero   | Proposta |
+| DP-04 | Utilizar ViaCEP como API pública                 | Definida |
+| DP-05 | Utilizar frete fictício de R$ 3,50               | Definida |
+| DP-06 | Remover item ao reduzir a quantidade para zero   | Definida |
 | DP-07 | Utilizar imagens SVG fornecidas pelo responsável | Definida |
 | DP-08 | Implementar tema claro e escuro                  | Definida |
-| DP-09 | Criar marca original com IA                      | Pendente |
+| DP-09 | Criar marca original com IA                      | SVG integrado; proposta por gerador visual pendente |
 | DP-10 | Não implementar backend nem pagamento real       | Definida |
 
-As decisões propostas deverão ser confirmadas ou revisadas antes da implementação correspondente.
+As decisões devem ser revisadas quando alterarem regras ou critérios de aceite.
 
 ---
 

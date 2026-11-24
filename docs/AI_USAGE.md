@@ -44,3 +44,13 @@ Os registros a seguir foram importados do projeto-base [wanessags/CoffeDelivery]
 - **Prompt da usuária:** “NAO AQUELE Q PEDI P VC FAZER IGUAL AO DO PROFESSOR”.
 - **Decisão:** recuperar a versão desenhada pelo assistente com copo roxo, grão claro e traços de movimento. Após aprovação, aplicar a mesma marca no Header, no favicon e no copo do banner, com uma paleta clara para a faixa escura. O gerador visual para essa versão retornou `Invalid credential`; a adaptação do banner foi feita com Canvas.
 - **Evidência:** [SVG escolhido](../src/assets/branding/marca-copo.svg) e [banner editado](../src/assets/home/hero-marca-copo.png). A comparação de pixels confirmou que a edição ficou restrita à região da estampa.
+
+## Importação: revisão do Notion e nova tentativa de branding
+
+- **Prompt do responsável:** “Implementar o projeto Coffee Delivery seguindo fielmente a referência do Notion [...] copie desse”, com a pasta da implementação-base.
+- **Objetivo:** conferir o escopo, aproveitar a aplicação e preservar a atribuição.
+- **Decisão:** consultar o enunciado e os frames do Figma, manter os assets fornecidos e registrar a origem em vez de apresentar a implementação importada como inédita.
+- **Evidência:** [registro da importação](TASKS_SPEC.md#8-registro-de-execução).
+- **Ferramenta visual:** gerador de imagens do OpenCode (`opencode/grok-imagine-image-2.0`).
+- **Prompt visual:** “Crie uma única proposta de símbolo original para a cafeteria acadêmica brasileira Coffee Delivery. Ícone quadrado minimalista, estilo vetorial plano, construído com formas grossas de alto contraste: copo de café para viagem levemente inclinado, grão de café dourado claro na frente do copo e dois curtos traços horizontais de entrega. Use fundo roxo escuro sólido em um quadrado de cantos suavemente arredondados, copo creme, grão âmbar. O quadrado deve preencher quase todo o quadro, com margem externa neutra pequena, e ficar legível a 16px. Sem texto, letras, números, foguetes, marcas existentes, sombras, texturas, gradientes, mockup ou cenário. Apenas um ícone centralizado. Preserve a linguagem visual roxa e dourada de uma cafeteria, não copie nenhum logotipo real.”
+- **Resultado:** a tentativa retornou `Invalid credential`; nenhuma imagem foi gerada. O SVG existente foi preservado e a comprovação exigida pelo RF-16 continua pendente.
