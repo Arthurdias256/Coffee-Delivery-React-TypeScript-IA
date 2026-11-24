@@ -1130,6 +1130,13 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Decisão:** manter as versões do anexo. O Node 22.11.0 da máquina não satisfaz os requisitos do Vite e do ambiente de testes; repetir `npm ci` com o Node 24 instalado no cache instalou também o binário do Rolldown para Windows.
 - **Commit:** `feat: importa aplicacao Coffee Delivery e testes da base`.
 
+### Importação — T10/T13: validação do CEP
+
+- **Escopo:** impedir finalizar durante a consulta ou com CEP inexistente. Preservar endereço manual em falhas da API (RF-08, RF-11, RN-07 e RN-10).
+- **Arquivos:** `useCepLookup`, formulário de endereço, página de Checkout, utilitário `cep` e testes de confirmação.
+- **Validação:** lint, TypeScript/build e 19 testes aprovados. Os dois testes novos verificam bloqueio com CEP inexistente e finalização com endereço manual quando a API está indisponível.
+- **Commit:** `fix: impede finalizar pedido com CEP inexistente`.
+
 ### Conferência com o enunciado do Notion
 
 - **Escopo:** atualização documental de T02 e dos critérios de T04, T17 e T18, sem encerrar essas tarefas.

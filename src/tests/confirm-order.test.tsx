@@ -36,6 +36,49 @@ it("bloqueia checkout vazio", () => {
   expect(screen.getByRole("button", { name: "Confirmar pedido" })).toBeDisabled();
 });
 
+it("bloqueia um CEP não encontrado mesmo com o restante do formulário preenchido", async () => {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify([{ coffeeId: "latte", quantity: 1 }]));
+  let answer: ((response: Response) => void) | undefined;
+  vi.stubGlobal("fetch", vi.fn().mockImplementation(() => new Promise<Response>((resolve) => {
+    answer = resolve;
+  })));
+  const user = userEvent.setup();
+  openAt("/checkout");
+
+  await user.type(screen.getByLabelText("CEP"), "99999999");
+  const confirm = screen.getByRole("button", { name: "Confirmar pedido" });
+  expect(screen.getByText("Consultando CEP…")).toBeVisible();
+  expect(confirm).toBeDisabled();
+
+  answer?.(Response.json({ erro: "true" }));
+  expect(await screen.findByText("CEP não encontrado.")).toBeVisible();
+  await fillManualAddress(user);
+  expect(confirm).toBeDisabled();
+  expect(sessionStorage.getItem(ORDER_STORAGE_KEY)).toBe("null");
+});
+
+it("permite confirmar um endereço válido preenchido manualmente se o ViaCEP estiver indisponível", async () => {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify([{ coffeeId: "latte", quantity: 1 }]));
+  vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("offline")));
+  const user = userEvent.setup();
+  openAt("/checkout");
+
+  await user.type(screen.getByLabelText("CEP"), "01001000");
+  expect(await screen.findByText("Não foi possível consultar o CEP. Tente novamente.")).toBeVisible();
+  await fillManualAddress(user);
+  await user.click(screen.getByRole("button", { name: "Confirmar pedido" }));
+  expect(await screen.findByText("Praça da Sé, 100")).toBeVisible();
+});
+
+async function fillManualAddress(user: ReturnType<typeof userEvent.setup>) {
+  await user.type(screen.getByLabelText("Rua"), "Praça da Sé");
+  await user.type(screen.getByLabelText("Número"), "100");
+  await user.type(screen.getByLabelText("Bairro"), "Sé");
+  await user.type(screen.getByLabelText("Cidade"), "São Paulo");
+  await user.type(screen.getByLabelText("UF"), "SP");
+  await user.click(screen.getByRole("radio", { name: "Dinheiro" }));
+}
+
 it("valida o pedido, limpa o carrinho e restaura a confirmação em uma nova montagem", async () => {
   localStorage.setItem(CART_STORAGE_KEY, JSON.stringify([{ coffeeId: "latte", quantity: 2 }]));
   vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({

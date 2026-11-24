@@ -664,6 +664,8 @@ Não apagar número e complemento ao atualizar os campos retornados pela API.
 
 Na T10, o formulário consulta o ViaCEP ao completar oito dígitos, permite tentar novamente e cancela a consulta anterior quando o CEP muda. Número e complemento nunca são preenchidos pela API. Se a pessoa editar um campo durante a consulta, a resposta não sobrescreve essa edição. O schema do endereço valida a UF contra as 27 siglas oficiais.
 
+O hook `useCepLookup` fornece o estado da consulta ao formulário e ao checkout. A confirmação fica indisponível enquanto a consulta está em andamento ou quando o ViaCEP informa que o CEP não existe. Uma falha de rede, resposta indisponível ou timeout de 10 segundos não impede finalizar com os campos preenchidos manualmente e validados pelo Zod.
+
 ### 12.3 Segurança
 
 Não enviar informações de pagamento para a API de CEP.

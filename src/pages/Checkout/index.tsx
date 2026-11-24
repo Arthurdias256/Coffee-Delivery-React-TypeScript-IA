@@ -6,6 +6,7 @@ import { CartSummary, type CartSummaryProps } from "../../components/CartSummary
 import { DeliveryAddressForm } from "../../components/DeliveryAddressForm/DeliveryAddressForm";
 import { EmptyCart } from "../../components/EmptyCart/EmptyCart";
 import { PaymentMethodSelector } from "../../components/PaymentMethodSelector/PaymentMethodSelector";
+import { useCepLookup } from "../../hooks/useCepLookup";
 import { checkoutDefaultValues, checkoutSchema, type CheckoutFormValues } from "../../schemas/checkoutSchema";
 import type { Order } from "../../types/order";
 import { createConfirmedOrder } from "../../utils/confirmedOrder";
@@ -24,10 +25,13 @@ export function Checkout({ cart, onOrderConfirmed }: CheckoutProps) {
     resolver: zodResolver(checkoutSchema),
     mode: "onBlur",
   });
-  const canConfirm = Boolean(cart?.items.length && onOrderConfirmed);
+  const cep = useCepLookup(form);
+  const cepBlocksOrder = cep.status?.kind === "loading" ||
+    (cep.status?.kind === "error" && cep.status.notFound);
+  const canConfirm = Boolean(cart?.items.length && onOrderConfirmed && !cepBlocksOrder);
 
   function submitOrder(values: CheckoutFormValues) {
-    if (!cart || !onOrderConfirmed) return;
+    if (!canConfirm || !cart || !onOrderConfirmed) return;
     const order = createConfirmedOrder(cart.items, values);
     if (!order) {
       setOrderError("Não foi possível confirmar o pedido. Confira os itens do carrinho.");
@@ -44,7 +48,7 @@ export function Checkout({ cart, onOrderConfirmed }: CheckoutProps) {
       <FormProvider {...form}>
         <form id="checkout-form" noValidate onSubmit={form.handleSubmit(submitOrder)}>
           <h1>Complete seu pedido</h1>
-          <DeliveryAddressForm />
+          <DeliveryAddressForm {...cep} />
           <PaymentMethodSelector />
         </form>
       </FormProvider>

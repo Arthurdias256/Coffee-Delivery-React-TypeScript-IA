@@ -45,10 +45,11 @@ export async function fetchAddress(
   }
 
   let response: Response;
+  const timeout = AbortSignal.timeout(10000);
 
   try {
     response = await fetch(`https://viacep.com.br/ws/${digits}/json/`, {
-      signal,
+      signal: signal ? AbortSignal.any([signal, timeout]) : timeout,
     });
   } catch (error) {
     if (error instanceof DOMException && error.name === "AbortError") throw error;
