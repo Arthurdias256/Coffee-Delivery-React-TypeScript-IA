@@ -4,7 +4,7 @@
 - **Disciplina:** Single Page Application (SPA)
 - **Stack:** React + TypeScript + Vite 8
 - **Versão:** 1.0
-- **Status:** Aplicação importada e validada localmente; veja o registro de execução
+- **Status:** Aplicação validada localmente e publicada na Vercel; veja o registro de execução
 - **Repositório:** https://github.com/Arthurdias256/Coffee-Delivery-React-TypeScript-IA
 
 ---
@@ -976,7 +976,7 @@ Documentação e uso obrigatório de IA.
 
 ## T18 — Publicar aplicação
 
-**Status:** Pendente.
+**Status:** Concluída. [Produção na Vercel](https://coffee-delivery-react-type-script-i.vercel.app/).
 
 **Objetivo:**
 Publicar o Coffee Delivery e validar sua execução online.
@@ -992,20 +992,20 @@ Entrega final do projeto.
 
 **Atividades:**
 
-- [ ] Escolher plataforma de hospedagem.
-- [ ] Configurar deploy.
-- [ ] Configurar fallback SPA.
-- [ ] Executar build de produção.
-- [ ] Publicar aplicação.
-- [ ] Testar Home publicada.
-- [ ] Testar Checkout publicado.
-- [ ] Testar Success publicado.
-- [ ] Testar refresh nas rotas.
-- [ ] Testar carregamento de imagens.
-- [ ] Testar integração de CEP.
-- [ ] Testar tema claro e escuro.
-- [ ] Adicionar link ao README.
-- [ ] Registrar evidências da publicação.
+- [x] Escolher plataforma de hospedagem.
+- [x] Configurar deploy.
+- [x] Configurar fallback SPA.
+- [x] Executar build de produção.
+- [x] Publicar aplicação.
+- [x] Testar Home publicada.
+- [x] Testar Checkout publicado.
+- [x] Testar Success publicado.
+- [x] Testar refresh nas rotas internas.
+- [x] Testar carregamento de imagens.
+- [x] Testar integração de CEP.
+- [x] Testar tema claro e escuro.
+- [x] Adicionar link ao README.
+- [x] Registrar evidências da publicação.
 
 **Critérios de aceite:**
 
@@ -1015,9 +1015,8 @@ Entrega final do projeto.
 - Assets carregando.
 - README com link de publicação.
 
-**Commit sugerido:**
+**Registro:** [Publicação na Vercel](#t18--publicação-na-vercel).
 
-`chore: prepara publicacao do Coffee Delivery`
 
 ---
 
@@ -1150,6 +1149,14 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Validação:** o OpenCode carregou os três perfis e as permissões do perfil de revisão; links locais e `git diff --check` conferidos; lint aprovado. Nenhum subagente foi iniciado.
 - **Commit:** `chore: personaliza agentes e atualiza guia de desenvolvimento`.
 
+### T18 — Publicação na Vercel
+
+- **Produção:** [Coffee Delivery](https://coffee-delivery-react-type-script-i.vercel.app/), plano Hobby. O primeiro deploy usou o commit `6503feb` da branch `main`. A integração com o GitHub está restrita a este repositório.
+- **Configuração:** o `vercel.json` existente foi usado sem alterações e sem variáveis de ambiente.
+- **Validação:** `/`, `/checkout` e `/success` responderam HTTP 200 sem login. No Chrome, em 390 e 1440 px, o fluxo completo carregou imagens e favicon, consultou o ViaCEP real (`01001-000`), confirmou um pedido fictício e preservou o carrinho, a confirmação e o tema nos recarregamentos correspondentes. Não houve rolagem horizontal.
+- **Arquivos:** `README.md`, `docs/TECH_SPEC.md`, `docs/TASKS_SPEC.md` e `docs/AI_USAGE.md`.
+- **Commit:** `docs: registra deploy do Coffee Delivery na Vercel`.
+
 ### Histórico do projeto-base
 
 Os registros a seguir vieram com a implementação-base. Seus commits, validações e decisões não foram realizados neste repositório. Consulte os registros acima para o estado da adaptação.
@@ -1279,9 +1286,9 @@ Os registros a seguir vieram com a implementação-base. Seus commits, validaç�
 - [x] Documentação atualizada.
 - [x] Pelo menos três interações com IA registradas, incluindo o histórico atribuído ao projeto-base.
 - [x] Screenshots adicionados.
-- [ ] Aplicação publicada.
-- [ ] README com link de deploy.
-- [ ] Repositório GitHub atualizado.
+- [x] Aplicação publicada.
+- [x] README com link de deploy.
+- [x] Repositório GitHub atualizado.
 
 ---
 

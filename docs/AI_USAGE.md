@@ -73,3 +73,10 @@ Os registros desta seção vieram da pasta fornecida com a implementação-base 
 - **Objetivo:** adaptar as instruções à estrutura atual da SPA, mantendo a procedência do código e das decisões anteriores.
 - **Decisão:** concentrar as regras em `AGENTS.md`, preservar os prompts nativos de Build e Plan e adicionar um perfil de revisão com acesso de leitura e comandos Git restritos.
 - **Evidência:** [configuração local](../opencode.json) e [guia do projeto](../AGENTS.md), validados com a listagem de perfis do OpenCode.
+
+### Publicação na Vercel
+
+- **Prompt do responsável:** “agora faça o veercel”.
+- **Objetivo:** publicar a branch `main` na Vercel e verificar a versão pública.
+- **Decisão:** limitar o acesso da integração ao repositório do Coffee Delivery e reutilizar o `vercel.json` existente, sem adicionar segredos nem variáveis de ambiente.
+- **Evidências:** [site publicado](https://coffee-delivery-react-type-script-i.vercel.app/) e [registro da validação](TASKS_SPEC.md#t18--publicação-na-vercel).

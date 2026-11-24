@@ -1019,26 +1019,11 @@ O uso de IA deverá ser documentado de forma transparente, incluindo limitaçõe
 
 ## 23. Implantação
 
-A aplicação deverá ser publicada em uma plataforma de hospedagem frontend.
+A versão de produção está em [coffee-delivery-react-type-script-i.vercel.app](https://coffee-delivery-react-type-script-i.vercel.app/), no plano Hobby da Vercel. A integração com o GitHub está restrita a este repositório e usa a branch `main` para produção.
 
-Opções previstas:
+O [vercel.json](../vercel.json) usa o preset Vite, instala com `npm ci`, compila com `npm run build` e publica `dist/`. O fallback para `index.html` permite abrir e recarregar `/checkout` e `/success` diretamente. Não há segredos nem variáveis de ambiente obrigatórias.
 
-- Vercel.
-- Netlify.
-
-A implantação deverá:
-
-- Compilar a aplicação.
-- Disponibilizar a Home.
-- Permitir navegação entre rotas.
-- Suportar refresh em rotas internas por configuração de fallback SPA.
-- Carregar os assets.
-- Manter os fluxos funcionando.
-- Não expor segredos.
-
-O link final deverá ser incluído no README.
-
-A publicação foi preparada para a Vercel. O `vercel.json` usa o preset Vite, instala com `npm ci`, publica `dist/` e reescreve as rotas da SPA para `index.html`. Não exige segredos nem variáveis de ambiente. O site citado no histórico pertence ao projeto-base; este repositório ainda não tem deploy próprio.
+Para acompanhar builds e deploys, use o [painel do projeto](https://vercel.com/arthurdias256/coffee-delivery-react-type-script-ia). Os resultados da validação pública estão no [registro da T18](TASKS_SPEC.md#t18--publicação-na-vercel).
 
 ---
 
@@ -1083,7 +1068,7 @@ As regras RN-01 a RN-10 do PRD também deverão ser verificadas durante a implem
 | DT-10 | Playwright                        | Planejada |
 | DT-11 | Identidade visual autoral         | Pendente  |
 | DT-12 | Tokens exatos do Figma            | Pendente  |
-| DT-13 | Plataforma de deploy              | Pendente  |
+| DT-13 | Vercel (produção via `main`)      | Em uso    |
 
 As propostas deverão ser confirmadas ou ajustadas antes da implementação correspondente.
 

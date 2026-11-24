@@ -2,6 +2,8 @@
 
 Uma cafeteria fictícia para praticar React e TypeScript. O projeto simula um pedido do início ao fim: você escolhe entre 14 cafés, monta o carrinho e informa o endereço de entrega. O CEP é consultado de verdade, mas **não há cobrança nem entrega real**.
 
+**[Acesse o Coffee Delivery na Vercel](https://coffee-delivery-react-type-script-i.vercel.app/).**
+
 ![Catálogo do Coffee Delivery no desktop, com a marca Rota do Café](docs/evidences/home-desktop.jpg)
 
 ## Experimente o pedido
@@ -56,4 +58,4 @@ O projeto segue o [enunciado do Projeto Final 05](https://app.notion.com/p/41bdf
 
 A marca Rota do Café foi desenhada em SVG com assistência de IA. Como o gerador visual não produziu uma imagem, a proposta exigida pelo RF-16 segue pendente. As decisões e tentativas estão no [registro de uso de IA](docs/AI_USAGE.md).
 
-Este repositório ainda não tem deploy próprio. O [vercel.json](vercel.json) deixa a configuração pronta para servir o build e manter as rotas da SPA funcionando ao recarregar. Confirme a autorização para redistribuir o material da base antes de publicar.
+O deploy de produção está conectado à branch `main` no GitHub. A Vercel usa o [vercel.json](vercel.json) para servir o build e manter as rotas da SPA funcionando ao recarregar. Veja o [registro de publicação](docs/TASKS_SPEC.md#t18--publicação-na-vercel) para a validação da versão pública.
