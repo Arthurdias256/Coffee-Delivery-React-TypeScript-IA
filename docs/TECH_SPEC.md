@@ -850,7 +850,7 @@ A marca deverá possuir:
 
 A ferramenta, o prompt, o resultado e a justificativa da escolha deverão ser registrados no README ou na documentação de branding. Verificar a legibilidade em tamanho reduzido e os direitos de uso.
 
-O Header e o favicon usam `src/assets/branding/marca-copo.svg`, com fundo transparente, copo roxo e grão. O texto do Header usa as cores de cada tema. `src/assets/home/hero-marca-copo.png` aplica uma variante do mesmo símbolo na faixa escura do copo do banner. A arte original (`src/assets/home/hero.svg`), os PNGs do protótipo e a primeira proposta em SVG foram preservados. A ferramenta dedicada de geração visual ainda não produziu uma imagem; consulte `docs/AI_USAGE.md`.
+O Header e o favicon usam `src/assets/branding/marca-rota.svg`, um pin roxo com xícara e detalhes dourados. O fundo transparente e o contorno lavanda permitem usar o mesmo símbolo nos dois temas, com o texto do Header adaptado pelas cores do tema. O desenho também aparece em `src/assets/home/hero-marca-rota.png` e `src/assets/success/delivery-marca-rota.png`. Os assets anteriores foram preservados; as novas versões das ilustrações alteram apenas a região da estampa. A ferramenta dedicada de geração visual ainda não produziu uma imagem; consulte `docs/AI_USAGE.md`.
 
 ---
 

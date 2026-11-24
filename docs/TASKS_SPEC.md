@@ -1153,6 +1153,16 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Pendências:** ferramenta visual retornou `Invalid credential` (RF-16); a marca SVG do anexo foi preservada. A configuração Vercel está pronta, mas não houve publicação ou envio ao GitHub.
 - **Commit:** `docs: registra validacao e prepara entrega local`.
 
+### T04/T17 — Substituição da marca
+
+- **Escopo:** nova identidade visual Rota do Café (RF-16), mantendo o nome Coffee Delivery e as imagens originais.
+- **Arquivos:** `marca-rota.svg`, `hero-marca-rota.png`, `delivery-marca-rota.png`, seus pontos de uso e a documentação de marca.
+- **Validação das artes:** a comparação de pixels confirmou que a edição ficou restrita às duas estampas. A mesma marca é usada no cabeçalho e no favicon.
+- **Validação técnica:** lint e build aprovados, 21 testes passaram. O favicon do build respondeu HTTP 200 no preview de produção.
+- **Validação visual:** carregamento da marca e do favicon de 16 px, ilustrações e fluxo completo conferidos no Chrome em seis larguras. As sete capturas foram atualizadas.
+- **Pendência:** o gerador visual retornou `Invalid credential`; a marca foi desenhada em SVG com assistência de IA.
+- **Commit:** `style: substitui marca do Coffee Delivery`.
+
 ### Conferência com o enunciado do Notion
 
 - **Escopo:** atualização documental de T02 e dos critérios de T04, T17 e T18, sem encerrar essas tarefas.

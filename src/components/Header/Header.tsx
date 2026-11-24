@@ -1,5 +1,5 @@
 import { MapPin } from "@phosphor-icons/react";
-import brandMark from "../../assets/branding/marca-copo.svg";
+import brandMark from "../../assets/branding/marca-rota.svg";
 import { CartBadge } from "../CartBadge/CartBadge";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import { BrandLink, BrandName, Controls, HeaderContainer, Location, Logo } from "./styles";

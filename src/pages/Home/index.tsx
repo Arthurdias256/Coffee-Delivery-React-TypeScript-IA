@@ -1,6 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 
-import hero from "../../assets/home/hero-marca-copo.png";
+import hero from "../../assets/home/hero-marca-rota.png";
 import { CoffeeCatalog } from "../../components/CoffeeCatalog/CoffeeCatalog";
 import { Banner, Benefit, Benefits, HeroImage, Intro, Title } from "./styles";
 

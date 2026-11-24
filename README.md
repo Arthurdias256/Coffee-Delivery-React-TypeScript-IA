@@ -60,7 +60,7 @@ Veja o [registro da validação](docs/TASKS_SPEC.md#importação--t17t18-evidên
 
 O [protótipo no Figma](https://www.figma.com/design/yGPNTA0Yczb183EikXGIiA/Coffee-Delivery-%E2%80%A2-Projeto-Final-React?node-id=2-1550) é a referência de composição, cores e tipografia (Baloo 2 e Roboto). As fotos do catálogo e a arte do banner vieram da [referência educacional da Rocketseat](https://github.com/rocketseat-education/ignite-challenge-solution-reactjs-coffee-delivery/tree/main/public/images).
 
-A aplicação usa a [marca do copo roxo em SVG](src/assets/branding/marca-copo.svg) no cabeçalho e no favicon. O mesmo símbolo, com tons adaptados à faixa escura, aparece na estampa do copo do banner. O grão substitui o foguete da referência. A nova tentativa de geração por ferramenta visual falhou por credencial, portanto essa parte do RF-16 segue pendente. Veja o [registro de uso de IA](docs/AI_USAGE.md).
+A aplicação usa a [marca Rota do Café](src/assets/branding/marca-rota.svg): uma xícara dentro de um pin de entrega roxo, com detalhes dourados. O símbolo está no cabeçalho, no favicon, no copo do banner e na caixa da ilustração de entrega. O SVG foi desenhado com assistência de IA após o gerador visual falhar por credencial. A proposta produzida por um gerador visual, exigida pelo RF-16, continua pendente. Veja o [registro de uso de IA](docs/AI_USAGE.md).
 
 ## Documentação
 

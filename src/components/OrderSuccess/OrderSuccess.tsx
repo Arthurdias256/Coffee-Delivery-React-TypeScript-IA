@@ -1,6 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
-import delivery from "../../assets/success/delivery.png";
+import delivery from "../../assets/success/delivery-marca-rota.png";
 import type { Order, PaymentMethod } from "../../types/order";
 import "./order-success.css";
 
