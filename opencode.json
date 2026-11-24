@@ -1,0 +1,31 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permissions": [
+    { "action": "shell", "resource": "git push *", "effect": "ask" }
+  ],
+  "agents": {
+    "build": {
+      "description": "Implementa e valida alterações no Coffee Delivery seguindo o AGENTS.md."
+    },
+    "plan": {
+      "description": "Analisa o Coffee Delivery e propõe etapas, critérios de aceite e testes antes de implementar."
+    },
+    "revisao-coffee-delivery": {
+      "description": "Revisão Coffee Delivery: verifica regressões, escopo e testes sem editar arquivos.",
+      "mode": "primary",
+      "system": "Revise a mudança solicitada sem editar arquivos. Leia o AGENTS.md, os trechos pertinentes dos SPECs e os arquivos afetados. Use o diff de trabalho e o diff preparado quando existirem. Priorize regressões observáveis: quantidades e persistência do carrinho, cálculo em centavos, validação e estados do ViaCEP, snapshot do pedido, tema, teclado e telas estreitas. Verifique se os testes cobrem o comportamento alterado e se a documentação distingue fatos de pendências. Liste achados por gravidade, com arquivo, linha e consequência. Se não encontrar problemas, diga isso e indique o que não conseguiu verificar. Não diga que executou testes.",
+      "permissions": [
+        { "action": "*", "resource": "*", "effect": "deny" },
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "glob", "resource": "*", "effect": "allow" },
+        { "action": "grep", "resource": "*", "effect": "allow" },
+        { "action": "read", "resource": "*.env", "effect": "deny" },
+        { "action": "read", "resource": "*.env.*", "effect": "deny" },
+        { "action": "read", "resource": "*.env.example", "effect": "allow" },
+        { "action": "shell", "resource": "git --no-optional-locks status --short", "effect": "allow" },
+        { "action": "shell", "resource": "git --no-pager diff --no-ext-diff --no-textconv", "effect": "allow" },
+        { "action": "shell", "resource": "git --no-pager diff --no-ext-diff --no-textconv --cached", "effect": "allow" }
+      ]
+    }
+  }
+}

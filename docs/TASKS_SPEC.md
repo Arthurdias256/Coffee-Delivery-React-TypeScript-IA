@@ -33,27 +33,7 @@ O objetivo é implementar todos os requisitos RF-01 a RF-16 e RN-01 a RN-10, man
 
 ## 2. Regras de execução
 
-O OpenCode deverá seguir estas regras:
-
-1. Ler AGENTS.md, PRD_SPEC.md, TECH_SPEC.md e TASKS_SPEC.md antes de iniciar.
-2. Verificar o estado atual do repositório.
-3. Identificar a próxima tarefa pendente.
-4. Implementar somente a tarefa selecionada.
-5. Não remover funcionalidades existentes.
-6. Não modificar arquivos fora do escopo sem justificativa.
-7. Atualizar os documentos SPEC quando necessário.
-8. Executar os testes aplicáveis.
-9. Registrar evidências da validação.
-10. Informar a mensagem de commit semântico.
-11. Não realizar push sem autorização.
-12. Não marcar uma tarefa como concluída sem validação.
-13. Não substituir imagens originais do Figma por imagens genéricas.
-14. Não inventar valores afirmando que foram extraídos do Figma.
-15. Manter TypeScript com tipagem adequada.
-16. Não utilizar `any` como atalho.
-17. Trabalhar com alterações pequenas e revisáveis.
-
-Quando solicitado pelo usuário, apresentar o conteúdo completo dos arquivos modificados.
+Use o [AGENTS.md](../AGENTS.md) como guia de trabalho. Os itens abaixo preservam o planejamento original; não são uma fila automática. Para saber o que foi feito nesta adaptação, consulte o [registro de execução](#8-registro-de-execução) e o checklist final.
 
 ---
 
@@ -118,7 +98,7 @@ Base técnica da aplicação.
 
 Os resultados de execução deverão ser registrados quando verificados.
 
-**Commit registrado:**
+**Commit registrado no projeto-base:**
 
 `5180531 — chore: inicializa Coffee Delivery com React TypeScript e Vite 8`
 
@@ -1072,7 +1052,7 @@ Sequência planejada:
 
 T01 -> T02 -> T03 -> T04 -> T05 -> T06 -> T07 -> T08 -> T09 -> T10 -> T11 -> T12 -> T13 -> T14 -> T15 -> T16 -> T17 -> T18
 
-O OpenCode não deverá iniciar uma tarefa dependente de outra ainda não concluída.
+Antes de iniciar uma tarefa que tenha dependências, confira o estado atual do código e do registro de execução, não apenas o status do plano original.
 
 A ordem poderá ser ajustada quando houver justificativa técnica e atualização da documentação.
 
@@ -1116,7 +1096,7 @@ Não inventar testes, screenshots ou resultados de execução.
 
 ### Importação — T02: especificações e origem
 
-- **Origem:** pasta `CoffeDelivery-main` fornecida pelo responsável, baseada em [wanessags/CoffeDelivery](https://github.com/wanessags/CoffeDelivery). Os registros históricos abaixo foram herdados, não correspondem a commits ou verificações neste repositório.
+- **Origem:** pasta `CoffeDelivery-main` fornecida para a importação. A atribuição ao projeto-base está no [README](../README.md). Somente a seção «Histórico do projeto-base» abaixo reúne registros herdados.
 - **Escopo:** preservar as especificações e os créditos, adaptar os links do repositório e confrontar RF-01 a RF-16 e RN-01 a RN-10 com o Notion.
 - **Arquivos:** `AGENTS.md` e os quatro documentos Markdown de `docs/`.
 - **Validação:** leitura do Notion e conferência visual dos frames públicos do Figma. A inspeção de medidas e propriedades do Figma não estava disponível. Nesta etapa não há código executável no destino.
@@ -1163,62 +1143,73 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Pendência:** o gerador visual retornou `Invalid credential`; a marca foi desenhada em SVG com assistência de IA.
 - **Commit:** `style: substitui marca do Coffee Delivery`.
 
-### Conferência com o enunciado do Notion
+### T02 — Revisão das instruções de agentes
+
+- **Escopo:** instruções específicas da SPA, perfis Build e Plan contextualizados e perfil `revisao-coffee-delivery` somente para revisão. Nenhuma mudança na aplicação.
+- **Arquivos:** `AGENTS.md`, `opencode.json`, `README.md`, `docs/TECH_SPEC.md`, `docs/TASKS_SPEC.md` e `docs/AI_USAGE.md`.
+- **Validação:** o OpenCode carregou os três perfis e as permissões do perfil de revisão; links locais e `git diff --check` conferidos; lint aprovado. Nenhum subagente foi iniciado.
+- **Commit:** `chore: personaliza agentes e atualiza guia de desenvolvimento`.
+
+### Histórico do projeto-base
+
+Os registros a seguir vieram com a implementação-base. Seus commits, validações e decisões não foram realizados neste repositório. Consulte os registros acima para o estado da adaptação.
+
+#### Conferência com o enunciado do Notion
 
 - **Escopo:** atualização documental de T02 e dos critérios de T04, T17 e T18, sem encerrar essas tarefas.
 - **Alterações:** frames do Figma, uso obrigatório de gerador visual, registro de branding e demonstração do fluxo.
 - **Pendências de entrega:** capturas de Home, Checkout, Sucesso e Dark Mode mobile; evidências desktop/mobile no README; repositório público e link do deploy validado.
 - **Branding:** a ferramenta visual retornou erro de credencial. O SVG criado com assistência do OpenCode serve como rascunho e não comprova, sozinho, o uso do gerador visual.
 
-### Revisão dos exports visuais (T02; referência para T10–T13 e T15)
+#### Revisão dos exports visuais (T02; referência para T10–T13 e T15)
 
 - **Arquivos fornecidos:** `Coffee Delivery - Checkout Filled.svg` e `Coffee Delivery - Success.svg`.
 - **Validação:** layout do Checkout conferido no material enviado; Confirmação renderizada localmente em Chromium. Verificados os `viewBox` de ambos e a presença de duas imagens incorporadas no Checkout.
 - **Resultado:** referências descritas no PRD e no TECH. A implementação e a validação mobile dessas telas continuam pendentes.
 
-### T06 — Fotos e ajustes da Home
+#### T06 — Fotos e ajustes da Home
 
 - **Status:** em andamento; não foi possível comparar a Home final diretamente com o SVG anexo.
 - **Arquivos:** catálogo tipado em `src/data/coffees.ts`, fotos em `src/assets/coffees/`, arte em `src/assets/home/` e teste em `src/tests/catalog.test.ts`. Os ajustes da grade, dos cards e do banner estão na implementação local.
 - **Validação:** lint, build e quatro testes aprovados. No Chromium, as 14 imagens carregaram sem rolagem horizontal em 320, 375, 390, 768, 1280 e 1440 px.
 - **Commit parcial:** `feat: adiciona fotos de referencia ao catalogo`.
 
-### T10 — Prévia do endereço no Checkout
+#### T10 — Prévia do endereço no Checkout
 
 - **Escopo:** formulário de entrega, validação e ViaCEP (RF-08, RN-07 e RN-08). O resumo, os pagamentos e a confirmação continuam pendentes.
 - **Arquivos:** `src/pages/Checkout/`, `src/components/DeliveryAddressForm/DeliveryAddressForm.tsx`, `src/schemas/checkoutSchema.ts`, `src/utils/cep.ts` e `src/tests/checkout-address.test.tsx`.
 - **Validação:** lint e build aprovados; oito testes passaram, incluindo quatro sobre endereço com respostas simuladas. Checkout e PNG do Header renderizados na prévia local em Chromium.
 - **Commit:** `feat: implementa endereco e consulta de CEP no checkout`.
 
-### T13 — Interface de confirmação e ilustração (parcial)
+#### T13 — Interface de confirmação e ilustração (parcial)
 
 - **Escopo independente:** componente que recebe um snapshot pronto e modo vazio quando o snapshot está ausente (RF-12 e RN-09). A criação do pedido e a limpeza do carrinho permanecem pendentes.
 - **Arquivos:** `src/components/OrderSuccess/`, `src/pages/Success/`, `src/assets/success/delivery.png` e `src/tests/order-success.test.tsx`. O roteamento da prévia local fornece o snapshot ao componente.
 - **Validação:** lint, build e dez testes aprovados; no navegador, `/success` exibiu o estado vazio e carregou o PNG original de 492 × 293 px. O estado preenchido foi validado com um snapshot de teste.
 - **Commit parcial:** `feat: cria interface de confirmacao com ilustracao original`.
 
-### T11 — Cafés selecionados e resumo financeiro
+#### T11 — Cafés selecionados e resumo financeiro
 
 - **Escopo:** itens reais, alteração de quantidade, remoção, subtotal, taxa de entrega e total (RF-05, RF-10, RN-03, RN-04 e RN-09). Pagamento e finalização não foram incluídos.
 - **Arquivos:** `src/components/CartItem/`, `src/components/CartSummary/`, `src/components/EmptyCart/`, `src/pages/Checkout/`, `src/utils/calculateCart.ts` e `src/tests/cart-summary.test.tsx`.
 - **Validação:** lint, build e 12 testes aprovados. Na prévia do navegador, uma unidade de Café com Leite exibiu subtotal de R$ 9,90, frete de R$ 3,50 e total de R$ 13,40.
 - **Commit:** `feat: mostra itens e totais do carrinho no checkout`. A prévia local passa o estado do carrinho pela rota; essa ligação permanece em `src/App.tsx` junto ao código de navegação ainda não versionado.
 
-### T12 — Pagamento fictício
+#### T12 — Pagamento fictício
 
 - **Escopo:** cartão de crédito, cartão de débito e dinheiro, com seleção única e obrigatória (RF-09, RN-05).
 - **Arquivos:** `src/components/PaymentMethodSelector/`, `src/pages/Checkout/` e `src/tests/payment.test.tsx`.
 - **Validação:** lint, build e dois testes específicos aprovados, incluindo seleção pelo teclado.
 - **Commit:** `feat: adiciona selecao de pagamento no checkout`.
 
-### T13 — Finalização do pedido
+#### T13 — Finalização do pedido
 
 - **Escopo:** botão de confirmação, validação completa, snapshot independente e navegação para `/success` após limpar o carrinho (RF-11 a RF-13, RN-06, RN-09 e RN-10).
 - **Arquivos:** `src/pages/Checkout/`, `src/App.tsx`, `src/contexts/OrderContext.tsx`, `src/utils/confirmedOrder.ts` e `src/tests/confirm-order.test.tsx`.
 - **Validação:** lint e build aprovados; 17 testes passaram. O teste de integração confirma a compra fictícia, a limpeza do carrinho e a restauração da confirmação ao montar de novo a aplicação. O ViaCEP foi simulado nesse teste.
 - **Commit:** `feat: confirma pedido e preserva snapshot da entrega`. A integração da estrutura já implementada da SPA foi registrada separadamente em `39f2048`.
 
-### T17 — README e evidências
+#### T17 — README e evidências
 
 - **Arquivos:** `README.md` e `docs/evidences/`.
 - **Escopo:** instalação, demonstração, arquitetura, branding e capturas da aplicação.
@@ -1226,22 +1217,22 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Pendências:** marca autoral gerada por ferramenta visual e publicação definitiva.
 - **Commit:** `docs: apresenta o projeto e registra evidencias da aplicacao`.
 
-### T18 — Configuração da Vercel (parcial)
+#### T18 — Configuração da Vercel (parcial)
 
 - **Arquivos:** `vercel.json`, `README.md` e `docs/TECH_SPEC.md`.
 - **Escopo:** preset Vite, build, saída estática e fallback da SPA.
 - **Pendências:** obter uma URL pública definitiva e validar as rotas nela.
 - **Commit:** `chore: prepara hospedagem da SPA na Vercel`.
 
-**Atualização:** o README agora aponta para o [domínio público de produção](https://coffe-delivery-blush.vercel.app/), no lugar do link de deploy que exigia login. Validei `/`, `/checkout` e `/success` em uma sessão limpa do Chromium, incluindo recarregar as duas rotas internas.
+**Atualização histórica:** o projeto-base passou a apontar para seu domínio público, registrado no README desta adaptação apenas como referência de origem. Segundo o registro herdado, as três rotas e o recarregamento das duas rotas internas foram conferidos em Chromium.
 
-### T04 — Atualização da logo da prévia
+#### T04 — Atualização da logo da prévia
 
 - **Escopo:** substituir o PNG do cabeçalho pelo arquivo transparente enviado, com texto claro no tema escuro. A marca autoral exigida pelo RF-16 permanece pendente.
 - **Validação:** lint, build e 17 testes passaram. No Chromium, as versões clara e escura carregaram sem fundo aplicado ao elemento.
 - **Commit:** `style: atualiza logo transparente do cabecalho`.
 
-### T04 — Proposta autoral de marca (parcial)
+#### T04 — Proposta autoral de marca (parcial)
 
 - **Escopo:** símbolo original em SVG, texto adaptado ao tema, favicon e registro do processo (RF-16).
 - **Arquivos:** `src/assets/branding/marca-autoral.svg`, `src/components/Header/`, `index.html`, `README.md`, `docs/AI_USAGE.md` e `docs/TECH_SPEC.md`.
@@ -1251,7 +1242,7 @@ Não inventar testes, screenshots ou resultados de execução.
 
 **Decisão posterior:** após a avaliação da proposta, a usuária preferiu manter a logo do protótipo no Header e a estampa original no banner. O SVG autoral ficou como rascunho. O RF-16 continua pendente.
 
-### T04 — Aplicação da proposta escolhida
+#### T04 — Aplicação da proposta escolhida
 
 - **Escopo:** a versão escolhida, com copo roxo e grão, substitui o logotipo do Header, o favicon e a estampa da faixa do copo no banner.
 - **Validação:** lint, build e 17 testes passaram. A comparação de pixels confirmou que a edição do banner está restrita à região da estampa.

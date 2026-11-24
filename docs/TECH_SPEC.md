@@ -41,13 +41,11 @@ O desenvolvimento será realizado em etapas pequenas e verificáveis, registrada
 | ViaCEP                | Consulta pública de endereço        |
 | Vitest                | Testes unitários                    |
 | React Testing Library | Testes de componentes               |
-| Playwright            | Testes end-to-end                   |
+| Playwright            | Verificação externa no navegador; não é dependência do projeto |
 | ESLint                | Análise estática do código          |
 | Git e GitHub          | Versionamento                       |
 
-As bibliotecas de teste deverão ser instaladas na etapa de configuração dos testes.
-
-As versões exatas das dependências serão registradas no `package.json` e no `package-lock.json`.
+Vitest e React Testing Library são instalados com `npm ci`. As versões estão em `package.json` e `package-lock.json`.
 
 ---
 
@@ -98,95 +96,31 @@ Não haverá servidor próprio, autenticação ou processamento financeiro.
 
 ## 4. Estrutura de diretórios
 
-Estrutura planejada:
+Estrutura atual:
 
 ```text
-coffee-delivery/
-|
-|-- public/
-|   |-- favicon.svg
-|
-|-- src/
-|   |-- assets/
-|   |   |-- coffees/
-|   |   |-- branding/
-|   |
-|   |-- components/
-|   |   |-- Header/
-|   |   |-- ThemeToggle/
-|   |   |-- CoffeeCard/
-|   |   |-- CoffeeCatalog/
-|   |   |-- QuantityInput/
-|   |   |-- CartBadge/
-|   |   |-- CartItem/
-|   |   |-- CartSummary/
-|   |   |-- DeliveryAddressForm/
-|   |   |-- PaymentMethodSelector/
-|   |   |-- EmptyCart/
-|   |   |-- PageLayout/
-|   |
-|   |-- contexts/
-|   |   |-- CartContext.tsx
-|   |   |-- ThemeContext.tsx
-|   |
-|   |-- reducers/
-|   |   |-- cartReducer.ts
-|   |
-|   |-- hooks/
-|   |   |-- useCart.ts
-|   |   |-- useTheme.ts
-|   |   |-- useLocalStorage.ts
-|   |
-|   |-- pages/
-|   |   |-- Home/
-|   |   |-- Checkout/
-|   |   |-- Success/
-|   |   |-- NotFound/
-|   |
-|   |-- data/
-|   |   |-- coffees.ts
-|   |
-|   |-- types/
-|   |   |-- coffee.ts
-|   |   |-- cart.ts
-|   |   |-- address.ts
-|   |   |-- order.ts
-|   |
-|   |-- schemas/
-|   |   |-- checkoutSchema.ts
-|   |
-|   |-- styles/
-|   |   |-- themes.ts
-|   |   |-- GlobalStyles.ts
-|   |   |-- styled.d.ts
-|   |
-|   |-- utils/
-|   |   |-- formatCurrency.ts
-|   |   |-- calculateCart.ts
-|   |   |-- cep.ts
-|   |
-|   |-- tests/
-|   |
-|   |-- App.tsx
-|   |-- main.tsx
-|
-|-- docs/
-|   |-- PRD_SPEC.md
-|   |-- TECH_SPEC.md
-|   |-- TASKS_SPEC.md
-|   |-- AI_USAGE.md
-|
-|-- AGENTS.md
-|-- README.md
-|-- package.json
-|-- vite.config.ts
+src/
+├── main.tsx            # Monta os providers
+├── ThemedApp.tsx       # Tema, estilos globais e BrowserRouter
+├── App.tsx            # Rotas e ligação entre pedido e carrinho
+├── assets/            # Cafés, identidade visual e ilustrações
+├── components/        # Elementos reutilizáveis
+├── pages/             # Home, Checkout, Success e NotFound
+├── contexts/          # Carrinho, tema e confirmação
+├── hooks/             # Consumo dos contextos, persistência e consulta de CEP
+├── data/              # Catálogo tipado
+├── reducers/          # Atualizações imutáveis do carrinho
+├── schemas/           # Validação do checkout
+├── styles/            # Temas, tokens e estilos globais
+├── types/             # Tipos de domínio
+├── utils/             # CEP, cálculos, formatação e snapshot
+└── tests/             # Vitest e React Testing Library
+docs/                  # SPECs, uso de IA e capturas
+AGENTS.md              # Instruções compartilhadas pelos agentes
+opencode.json          # Perfis e permissões do OpenCode neste repositório
 ```
 
-A estrutura poderá ser ajustada quando necessário.
-
-Cada alteração arquitetural deverá ser registrada neste documento.
-
-Não criar arquivos ou componentes sem uma responsabilidade definida.
+O favicon é referenciado em `index.html` e vem de `src/assets/branding/marca-rota.svg`. Os scripts e dependências ficam em `package.json`; o build e o ambiente de testes são configurados em `vite.config.ts` e `vitest.config.ts`.
 
 ---
 
@@ -927,13 +861,10 @@ O seletor de pagamento deverá funcionar com teclado e tecnologias assistivas.
 
 Os testes deverão verificar regras de negócio e fluxos principais.
 
-### 18.1 Ferramentas previstas
+### 18.1 Ferramentas
 
-- Vitest.
-- React Testing Library.
-- Playwright.
-
-As ferramentas serão configuradas nas respectivas tarefas do plano de implementação.
+- `npm run test` executa Vitest e React Testing Library em jsdom, com testes em `src/tests/`. Os testes de CEP simulam as respostas da API.
+- As verificações de layout e do fluxo real podem complementar a suíte no navegador. As evidências registradas usaram Chrome com Playwright externo; não há script Playwright em `package.json`.
 
 ### 18.2 Testes de carrinho
 
@@ -1002,28 +933,17 @@ Não afirmar que um teste passou sem executá-lo.
 
 ## 19. Scripts e validação
 
-Scripts iniciais esperados no projeto Vite:
+Scripts disponíveis:
 
 ```bash
 npm run dev
 npm run build
 npm run lint
 npm run preview
-```
-
-Após configurar o Vitest, adicionar um script para execução dos testes.
-
-Exemplo planejado:
-
-```bash
 npm run test
 ```
 
-Antes de encerrar uma tarefa, executar os comandos aplicáveis e registrar os resultados.
-
-Os testes de interface poderão ser complementados com Playwright.
-
-Não considerar uma compilação bem-sucedida como prova de que todos os fluxos funcionam.
+O build executa `tsc -b` antes do Vite. Execute as verificações aplicáveis à mudança e registre os resultados; compilar não substitui validar os fluxos afetados.
 
 ---
 
@@ -1047,9 +967,7 @@ A aplicação é acadêmica e simula operações de compra.
 
 ## 21. Versionamento
 
-Repositório:
-
-https://github.com/Arthurdias256/Coffee-Delivery-React-TypeScript-IA
+O repositório de trabalho e os créditos da implementação-base estão no [README](../README.md).
 
 Branch principal:
 

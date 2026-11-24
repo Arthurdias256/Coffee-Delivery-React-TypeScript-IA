@@ -69,6 +69,8 @@ A aplicação usa a [marca Rota do Café](src/assets/branding/marca-rota.svg): u
 - [TASKS — etapas e validações](docs/TASKS_SPEC.md)
 - [AGENTS — diretrizes do projeto](AGENTS.md)
 
+No OpenCode, abra a pasta deste repositório. O [opencode.json](opencode.json) identifica **Build** para implementação, **Plan** para planejamento e `revisao-coffee-delivery` para revisão sem edição. O perfil de revisão só pode usar o shell para consultar status e diffs; ele não executa testes. Os perfis leem o `AGENTS.md` do projeto.
+
 ## Hospedagem na Vercel
 
 **Deploy deste repositório:** ainda não publicado. O [site do projeto-base](https://coffe-delivery-blush.vercel.app/) não é o deploy desta adaptação.
