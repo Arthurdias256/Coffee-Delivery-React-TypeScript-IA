@@ -52,7 +52,7 @@ O [histórico de testes e evidências](docs/TASKS_SPEC.md#importação--t17t18-e
 
 ## Referências e publicação
 
-O projeto segue o [enunciado do Projeto Final 05](https://app.notion.com/p/41bdfca74d8d8119a849e30ea492a6af) e o [protótipo no Figma](https://www.figma.com/design/yGPNTA0Yczb183EikXGIiA/Coffee-Delivery-%E2%80%A2-Projeto-Final-React?node-id=2-1550). A implementação foi adaptada de [wanessags/CoffeDelivery](https://github.com/wanessags/CoffeDelivery) a partir da pasta fornecida. As fotos dos cafés e a arte-base do banner são da [referência educacional da Rocketseat](https://github.com/rocketseat-education/ignite-challenge-solution-reactjs-coffee-delivery/tree/main/public/images).
+O projeto segue o [enunciado do Projeto Final 05](https://app.notion.com/p/41bdfca74d8d8119a849e30ea492a6af) e o [protótipo no Figma](https://www.figma.com/design/yGPNTA0Yczb183EikXGIiA/Coffee-Delivery-%E2%80%A2-Projeto-Final-React?node-id=2-1550). A origem da implementação-base está documentada no [registro de referências](docs/AI_USAGE.md#registros-do-projeto-base). As fotos dos cafés e a arte-base do banner são da [referência educacional da Rocketseat](https://github.com/rocketseat-education/ignite-challenge-solution-reactjs-coffee-delivery/tree/main/public/images).
 
 A marca Rota do Café foi desenhada em SVG com assistência de IA. Como o gerador visual não produziu uma imagem, a proposta exigida pelo RF-16 segue pendente. As decisões e tentativas estão no [registro de uso de IA](docs/AI_USAGE.md).
 

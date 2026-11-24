@@ -2,7 +2,7 @@
 
 ## Registros do projeto-base
 
-Os registros desta seção foram importados do projeto-base identificado no [README](../README.md). Não são interações do responsável por esta adaptação.
+Os registros desta seção vieram da pasta fornecida com a implementação-base de [wanessags/CoffeDelivery](https://github.com/wanessags/CoffeDelivery). Não são interações do responsável por esta adaptação.
 
 ### Conferência do enunciado
 
