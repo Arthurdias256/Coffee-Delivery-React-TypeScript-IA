@@ -2,6 +2,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useState,
   type ReactNode,
 } from "react";
 
@@ -24,16 +25,26 @@ function getSystemMode(): ThemeMode {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useLocalStorage<ThemeMode>(
+  const [systemMode, setSystemMode] = useState(getSystemMode);
+  const [preference, setPreference] = useLocalStorage<ThemeMode | null>(
     THEME_STORAGE_KEY,
-    getSystemMode,
+    null,
     "local",
     parseStoredMode,
   );
+  const mode = preference ?? systemMode;
 
   const toggleMode = useCallback(() => {
-    setMode((current) => (current === "light" ? "dark" : "light"));
-  }, [setMode]);
+    setPreference(mode === "light" ? "dark" : "light");
+  }, [mode, setPreference]);
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const update = (event: MediaQueryListEvent) => setSystemMode(event.matches ? "dark" : "light");
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = mode;

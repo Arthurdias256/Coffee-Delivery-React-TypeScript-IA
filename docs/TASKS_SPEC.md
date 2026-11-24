@@ -4,7 +4,7 @@
 - **Disciplina:** Single Page Application (SPA)
 - **Stack:** React + TypeScript + Vite 8
 - **Versão:** 1.0
-- **Status:** Planejamento
+- **Status:** Aplicação importada e validada localmente; veja o registro de execução
 - **Repositório:** https://github.com/Arthurdias256/Coffee-Delivery-React-TypeScript-IA
 
 ---
@@ -1136,6 +1136,13 @@ Não inventar testes, screenshots ou resultados de execução.
 - **Arquivos:** `useCepLookup`, formulário de endereço, página de Checkout, utilitário `cep` e testes de confirmação.
 - **Validação:** lint, TypeScript/build e 19 testes aprovados. Os dois testes novos verificam bloqueio com CEP inexistente e finalização com endereço manual quando a API está indisponível.
 - **Commit:** `fix: impede finalizar pedido com CEP inexistente`.
+
+### Importação — T05/T14–T16: interface e persistência
+
+- **Escopo:** localização ilustrativa no Header conforme o Figma, agrupamento das ações do catálogo, nome acessível da marca e distinção entre tema do sistema e escolha explícita (RF-04, RF-14 e RF-15).
+- **Arquivos:** Header, CoffeeCard, QuantityInput, tokens, ThemeContext e `src/tests/home-flow.test.tsx`.
+- **Validação:** novo teste de integração do catálogo com carrinho persistente e teste de preferência de tema. O contraste e a navegação por teclado foram revisados nos controles envolvidos; o Lighthouse da Home marcou 100 em acessibilidade, sem certificar conformidade WCAG completa.
+- **Commit:** `style: aproxima cabecalho e catalogo da referencia`.
 
 ### Conferência com o enunciado do Notion
 

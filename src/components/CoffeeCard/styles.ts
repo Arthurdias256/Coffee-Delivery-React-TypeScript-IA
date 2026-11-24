@@ -63,6 +63,12 @@ export const Actions = styled.div`
   gap: 0.5rem;
   width: 100%;
   margin-top: 1.25rem;
+`;
+
+export const PurchaseControls = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 
   > button {
     display: inline-flex;

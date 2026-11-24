@@ -3,7 +3,7 @@
 - **Projeto:** Coffee Delivery
 - **Disciplina:** Single Page Application (SPA)
 - **Versão:** 1.0
-- **Status:** Planejamento técnico
+- **Status:** Aplicação importada e adaptada
 - **Repositório:** https://github.com/Arthurdias256/Coffee-Delivery-React-TypeScript-IA
 
 ---
@@ -770,6 +770,8 @@ Comportamento:
 4. Permitir alternância manual.
 5. Persistir a escolha.
 
+Enquanto não houver escolha manual, uma mudança em `prefers-color-scheme` atualiza o tema. Uma escolha salva tem prioridade sobre o tema do sistema, inclusive após recarregar.
+
 Tratar exceções de leitura e escrita no localStorage.
 
 ### 14.4 Componentes afetados
@@ -1118,7 +1120,7 @@ A implantação deverá:
 
 O link final deverá ser incluído no README.
 
-A publicação foi preparada para a Vercel. O `vercel.json` usa o preset Vite, instala com `npm ci`, publica `dist/` e reescreve as rotas da SPA para `index.html`. Não exige segredos nem variáveis de ambiente.
+A publicação foi preparada para a Vercel. O `vercel.json` usa o preset Vite, instala com `npm ci`, publica `dist/` e reescreve as rotas da SPA para `index.html`. Não exige segredos nem variáveis de ambiente. O site citado no histórico pertence ao projeto-base; este repositório ainda não tem deploy próprio.
 
 ---
 

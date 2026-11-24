@@ -13,7 +13,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.75rem;
     width: min(100% - 2rem, 1120px);
     margin: 0 auto;
   }
@@ -53,7 +53,35 @@ export const BrandName = styled.span`
 export const Controls = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.375rem;
+`;
+
+export const Location = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 40px;
+  padding: 0 0.5rem;
+  color: ${({ theme }) => theme.locationText};
+  background: ${({ theme }) => theme.locationSurface};
+  border-radius: 6px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+
+  @media (max-width: 399px) {
+    padding: 0 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 374px) {
+    > span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+  }
 `;
 
 export const CartLink = styled(Link)`
@@ -63,14 +91,13 @@ export const CartLink = styled(Link)`
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: ${({ theme }) => theme.text};
-  background: ${({ theme }) => theme.surfaceSecondary};
-  border: 1px solid ${({ theme }) => theme.border};
-  border-radius: 10px;
+  color: ${({ theme }) => theme.cartText};
+  background: ${({ theme }) => theme.cartSurface};
+  border: 1px solid transparent;
+  border-radius: 6px;
 
   &:hover {
-    color: ${({ theme }) => theme.primary};
-    border-color: ${({ theme }) => theme.primary};
+    border-color: currentColor;
   }
 `;
 
@@ -83,7 +110,7 @@ export const Badge = styled.span`
   min-width: 22px;
   height: 22px;
   padding: 0 4px;
-  color: ${({ theme }) => theme.primaryContrast};
+  color: #171412;
   background: ${({ theme }) => theme.secondary};
   border: 2px solid ${({ theme }) => theme.background};
   border-radius: 999px;

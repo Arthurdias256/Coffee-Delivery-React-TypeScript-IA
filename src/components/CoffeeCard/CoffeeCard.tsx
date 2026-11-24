@@ -11,6 +11,7 @@ import {
   Image,
   Name,
   Price,
+  PurchaseControls,
   Tag,
   Tags,
 } from "./styles";
@@ -52,15 +53,17 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             part.type === "currency" ? <small key={index}>{part.value}</small> : part.value,
           )}
         </Price>
-        <QuantityInput
-          value={quantity}
-          onDecrement={decrease}
-          onIncrement={increase}
-          itemName={coffee.name}
-        />
-        <button type="button" onClick={handleAdd} aria-label={`Adicionar ${coffee.name} ao carrinho`}>
-          <ShoppingCart size={18} weight="fill" aria-hidden="true" />
-        </button>
+        <PurchaseControls>
+          <QuantityInput
+            value={quantity}
+            onDecrement={decrease}
+            onIncrement={increase}
+            itemName={coffee.name}
+          />
+          <button type="button" onClick={handleAdd} aria-label={`Adicionar ${coffee.name} ao carrinho`}>
+            <ShoppingCart size={18} weight="fill" aria-hidden="true" />
+          </button>
+        </PurchaseControls>
       </Actions>
     </Card>
   );

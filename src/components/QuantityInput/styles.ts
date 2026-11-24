@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div<{ $compact: boolean }>`
   display: inline-flex;
   align-items: center;
-  gap: ${({ $compact }) => ($compact ? "4px" : "8px")};
-  padding: ${({ $compact }) => ($compact ? "4px 6px" : "6px 8px")};
-  background: ${({ theme }) => theme.surfaceSecondary};
+  gap: ${({ $compact }) => ($compact ? "4px" : "6px")};
+  padding: ${({ $compact }) => ($compact ? "4px 6px" : "6px")};
+  background: ${({ theme }) => theme.border};
   border-radius: 6px;
 `;
 
